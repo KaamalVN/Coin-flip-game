@@ -52,7 +52,8 @@ const App = () => {
           window.location.reload();
         });
       } else {
-        console.error("MetaMask is not installed. Please install MetaMask.");
+        // MetaMask is not installed, show an alert
+        alert("MetaMask is not installed. Please install MetaMask to use this application.");
       }
     };
 
