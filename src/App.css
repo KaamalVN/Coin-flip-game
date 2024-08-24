@@ -1,0 +1,181 @@
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&display=swap");
+
+* {
+  font-family: "Comfortaa", cursive;
+  box-sizing: border-box;
+}
+
+.coin-flip-container {
+  background: #1c1c1c;
+  display: grid;
+  grid-template-rows: auto auto auto;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  height: 100vh;
+  padding: 20px;
+  align-items: center;
+  justify-items: center;
+}
+
+.outcome-container {
+  grid-row: 1;
+}
+
+.button-container {
+  grid-row: 2;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  width: 100%;
+}
+
+.guess-button {
+  background: none;
+  border: 2px solid green;
+  padding: 12px 30px;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 5px;
+  color: white;
+  font-size: 12px;
+  outline: none;
+  position: relative;
+  z-index: 0;
+  transition: background-color 0.2s;
+}
+.guess-button.selected {
+  background-color: green;
+}
+.guess-button:hover {
+  cursor: pointer;
+}
+
+.outcome {
+  height: 200px;
+  width: 200px;
+  background: #555;
+  border-radius: 50%;
+  border-style: dotted;
+  border-color: #1c1c1c;
+  border-width: 3px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  transform: rotateY(0deg) rotateX(0deg);
+  transition: 1s;
+  font-size: 32px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-weight: bold;
+  line-height: 0.8;
+  color: #222;
+  box-shadow: 0 0 30px black;
+}
+.outcome.flip {
+  transform: rotateY(720deg) rotateX(720deg);
+}
+.outcome.toss {
+  -webkit-animation: toss 0.7s forwards ease-in-out;
+  animation: toss 0.7s forwards ease-in-out;
+}
+
+.outcome.glow-heads {
+  box-shadow: 0 0 30px green;
+}
+
+.outcome.glow-tails {
+  box-shadow: 0 0 30px red;
+}
+
+.outcome:before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  height: 185px;
+  width: 185px;
+  display: block;
+  background: none;
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  border-radius: 50%;
+}
+.outcome:after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  height: 190px;
+  width: 190px;
+  display: block;
+  background: none;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 50%;
+}
+
+@keyframes toss {
+  0% {
+    top: 0px;
+  }
+  50% {
+    top: -150px;
+  }
+  100% {
+    top: 0px;
+  }
+}
+
+.wallet-container {
+  grid-row: 3;
+  text-align: center;
+}
+
+.wallet-button, .bet-button {
+  background: none;
+  border: 2px solid green;
+  padding: 12px 30px;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 5px;
+  color: white;
+  font-size: 12px;
+  outline: none;
+  position: relative;
+  z-index: 0;
+  transition: background-color 0.2s;
+}
+.wallet-button:hover, .bet-button:hover {
+  cursor: pointer;
+}
+.wallet-button {
+  margin-bottom: 20px;
+}
+
+.bet-input {
+  margin: 20px 0;
+  padding: 10px;
+  border: 2px solid green;
+  border-radius: 5px;
+  background: #333;
+  color: white;
+}
+
+.status{
+  color: white;
+}
+.warning{
+  color: white;
+}
+
+@media (max-width: 600px) {
+  .coin-flip-container {
+    grid-template-rows: auto auto auto auto;
+    grid-template-columns: 1fr;
+  }
+
+  .button-container {
+    grid-template-columns: 1fr;
+  }
+}
